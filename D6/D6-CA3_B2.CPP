@@ -16,10 +16,10 @@ using namespace std;
 
 float A[50];
 
-int main(int argc, char const *argv[])
+main()
 {
-	int n, d = 0, max;
-	float s = 0, tbc, x;
+	int n, d = 0, max, x;
+	float s = 0, tbc;
 	cout << "Nhap vao so nguyen duong n: ";
 	cin >> n;
 	if (n >= 1 && n <= 50)
@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 			cin >> A[i];
 		}
 
-		cout << "\nMang da nhap la:"<<endl;
+		cout << "\nMang da nhap la:" << endl;
 		{
 			for (int i = 0; i < n; ++i)
 			{
@@ -48,23 +48,40 @@ int main(int argc, char const *argv[])
 			if (A[i] > max)
 			{
 				max = A[i];
-				return max;
-				cout << "\nPhan tu lon nhat cua mang la: " << max;
 			}
-			
-			
-			else 
+		}
+		cout << "\nPhan tu lon nhat cua mang la: " << max;
+
+		if (x > max)
+		{
+			for (int i = 0; i < n; ++i)
+			{
+				if (x % A[i] == 0)
 				{
-					cout << "\nNhap lai x, x phai lon hon max!";
+					s += A[i];
+					d++;
 				}
+			}
+			tbc = s / d;
+			cout << "\nTrung binh cong cac phan tu la uoc cua x = " << x << "la: " << tbc;
+		}
+		else
+		{
+			cout << "\nNhap lai x, x phai lon hon gia tri lon nhat cua mang!~";
 		}
 
-		cout << "\nTrung binh cong cac phan tu la uoc cua x = " << x << "la: " << tbc;
-	}
+		cout << "Cac phan tu chan khong chia het cho 5: ";
+		for (int i = 0; i < n; ++i)
+		{
+			if (A[i] % 2 == 0 && A[i] % 5 != 0)
+			{
+				cout << "A[" << i << ""
+			}
+		}
 	else
 	{
 		cout << "n nhap vao khong thoa man yeu cau!~";
 	}
-	getch ();
-	return 0;
-}
+		getch ();
+		return 0;
+	}
